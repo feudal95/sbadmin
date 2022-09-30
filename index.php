@@ -1,11 +1,14 @@
 <?php
 require('conexion.php');
+session_start();
 
 if ($_POST) {
     $usuario = $_POST['usuario'];
     $password = $_POST['password'];
 
-    $sql = "SELECT id, password, nombre, tipo_usuario FROM usuario=" . $usuario . ";";
+    $sql = "SELECT id, password, nombre, tipo_usuario FROM usuario WHERE usuario='" . $usuario . "';";
+    
+    echo $sql;
     $resultado = $mysqli->query($sql);
     $num = $resultado->num_rows;
     if ($num > 0) {
@@ -72,7 +75,7 @@ if ($_POST) {
                                         </div>
                                         <div class="d-flex align-items-center justify-content-between mt-4 mb-0">
                                             <a class="small" href="password.html">Forgot Password?</a>
-                                            <a class="btn btn-primary" href="index.html">Login</a>
+                                            <button class="btn btn-primary" href="index.html">Login</button>
                                         </div>
                                     </form>
                                 </div>
