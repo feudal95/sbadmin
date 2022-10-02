@@ -6,7 +6,7 @@ if ($_POST) {
     $usuario = $_POST['usuario'];
     $password = $_POST['password'];
 
-    $sql = "SELECT id, password, nombre, tipo_usuario FROM usuario WHERE usuario='" . $usuario . "';";
+    $sql = "SELECT id, password, nombre, tipo_usuario FROM usuarios WHERE usuario='" . $usuario . "';";
     
     echo $sql;
     $resultado = $mysqli->query($sql);

@@ -6,7 +6,7 @@ require 'conexion.php';
 if (!isset($_SESSION['id'])) {
     header("location: index.php");
 }
-
+$id = $_SESSION['id'];
 $nombre = $_SESSION['nombre'];
 $tipo_usuario = $_SESSION['tipo_usuario'];
 
@@ -18,8 +18,9 @@ if ($tipo_usuario == 1) {
     $where = "WHERE id =$id";
 }
 
-$sql = "SELECT * FROM usuarios". $where .";";
+$sql = "SELECT * FROM usuarios " . $where . ";";
 echo $sql;
+
 $resultado = $mysqli->query($sql);
 ?>
 
@@ -165,12 +166,11 @@ $resultado = $mysqli->query($sql);
                                     </thead>
                                     <tfoot>
                                         <tr>
-                                            <th>Name</th>
-                                            <th>Position</th>
-                                            <th>Office</th>
-                                            <th>Age</th>
-                                            <th>Start date</th>
-                                            <th>Salary</th>
+                                            <th>Usuario</th>
+                                            <th>Password</th>
+                                            <th>Nombre</th>
+                                            <th>Tipo Usuario</th>
+
                                         </tr>
                                     </tfoot>
                                     <tbody>
