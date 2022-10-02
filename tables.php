@@ -18,8 +18,8 @@ if ($tipo_usuario == 1) {
     $where = "WHERE id =$id";
 }
 
-$sql = "SELECT * FROM usuarios . $where.; ";
-
+$sql = "SELECT * FROM usuarios". $where .";";
+echo $sql;
 $resultado = $mysqli->query($sql);
 ?>
 
@@ -120,7 +120,7 @@ $resultado = $mysqli->query($sql);
                                 <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
                                 Charts
                             </a>
-                            <a class="nav-link" href="tables.html">
+                            <a class="nav-link" href="tables.php">
                                 <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
                                 Tables
                             </a>
@@ -174,13 +174,17 @@ $resultado = $mysqli->query($sql);
                                         </tr>
                                     </tfoot>
                                     <tbody>
-                                        <?php
-                                        while($row = $resultado->$fetch_assoc()) {
-                                            
-                                        
-                                        ?>
-                                        
-                                        
+                                        <?php while ($row = $resultado->fetch_assoc()) { ?>
+                                            <tr>
+                                                <td><?php echo $row['usuario']; ?></td>
+                                                <td><?php echo $row['password']; ?></td>
+                                                <td><?php echo $row['nombre']; ?></td>
+                                                <td><?php echo $row['tipo_usuario']; ?></td>
+                                            </tr>
+                                        <?php } ?>
+
+
+
                                     </tbody>
                                 </table>
                             </div>
